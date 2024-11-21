@@ -1,0 +1,6 @@
+News Ondex Page - 여기는 언론사 리스트가 나올 거에요
+<ul>
+{% for company in company_list %}
+<li><a href={url 'news:detail' company_id}>{{company.name}}</a></li>
+{% endfor %}
+</ul>

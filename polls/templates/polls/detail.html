@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls</title>
+</head>
+<body>
+    <h1>Polls</h1>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <a href="{% url 'polls:vote' question.id %}">
+                    {{ question.question_text }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname">
+
+<input type="submit" value="제출버튼">
+</form>
+
+
+<form action="{% url 'polls:detail' question.id %}" method="post">
+    {% csrf_token %}
+
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label>
+
+<input type="submit" value="제출버튼">
+</form>
+
+
+<form action="{% url 'polls:detail' question.id %}" method="post">
+    {% csrf_token %}
+
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday">
+
+<input type="submit" value="제출버튼">
+</form>
+
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+
+    <label for="address">address:</label>
+    <input type="submit" id="address" name="address">
+
+<input type="submit" value="제출버튼">
+</form>

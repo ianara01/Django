@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likelion</title>
+</head>
+<body>
+    <img src="http://placehold.it/>
+    <h1>설문제목: {{question.question_text}}</h1>
+    <h3>{{question.pub_date}}</h3>
+
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>선택: {{choice.choice_text}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
